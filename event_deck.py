@@ -79,9 +79,9 @@ for i, row in enumerate(data):
     # TODO: split flavor and functional text. can't do with markup
     #draw flavor text
     multiline_wrapped_list = wrap_text(row["flavorText"],stat_overlay_size[0],font)
-    y_text = stat_overlay_size[0]
+    y_text = bottom_overlay[0][1]
     for line in multiline_wrapped_list:
-        draw.text((text_col_buffer_px, y_text), line, font=font, fill=(0, 0, 0, 255))
+        draw.text((xy_pos[0] + text_col_buffer_px, y_text), line, font=font, fill=(0, 0, 0, 255))
         y_text += 24
     #draw.multiline_text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + text_col_buffer_px), row["flavorText"], font=font, fill="white", spacing=10, align='left', width=text_stroke_width)
 
