@@ -42,6 +42,7 @@ draw = ImageDraw.Draw(img)
 
 font_size = 24
 font = ImageFont.truetype("arial.ttf", font_size)
+name_font = ImageFont.truetype("arial.ttf", 32)
 
 # Iterate over each row of the data
 for i, row in enumerate(data):
@@ -67,12 +68,16 @@ for i, row in enumerate(data):
     except FileNotFoundError:
         print(f"Error: The file ${row['imgpath']} could not be found.")
 
+    text_col_buffer_px = 10
+    text_stroke_width = 0
+    
     # draw overlays
     overlay_color = "gray"
     draw.rectangle(bottom_overlay, fill=overlay_color)
+    # draw name
+    draw.text((xy_pos[0] + text_col_buffer_px, xy_pos[1] + 20), row["name"], font=name_font, fill="black",stroke_fill="white",stroke_width=2)
+    # TODO: split flavor and functional text. can't do with markup
     #draw flavor text
-    text_col_buffer_px = 10
-    text_stroke_width = 0
     multiline_wrapped_list = wrap_text(row["flavorText"],stat_overlay_size[0],font)
     y_text = stat_overlay_size[0]
     for line in multiline_wrapped_list:
