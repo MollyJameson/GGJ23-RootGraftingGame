@@ -35,6 +35,7 @@ for i, row in enumerate(data):
     # Whole card bg, useful for showing when we don't have an image
     draw.rectangle(card_position_on_sheet, fill="lightgray")
 
+
     # top overlay
     stat_overlay_size = (int(card_w_px),int(card_h_px/6))
     top_overlay = [xy_pos, (xy_pos[0] + stat_overlay_size[0], xy_pos[1] + stat_overlay_size[1])]
@@ -53,12 +54,15 @@ for i, row in enumerate(data):
     # draw overlays
     overlay_color = "gray"
     top_overlay_color = overlay_color
+
+    border_width = 10
+
     if row["type (perennial or annual)"] == "A":
-        overlay_color = "DarkGreen"
-        top_overlay_color = "Blue"
+        overlay_color = "Peru"
+        top_overlay_color = "ForestGreen"
     elif row["type (perennial or annual)"] == "B":
-        overlay_color = "SaddleBrown"
-        top_overlay_color = "Red"
+        overlay_color = "Peru"
+        top_overlay_color = "MediumPurple"
     draw.rectangle(top_overlay, fill=top_overlay_color)
     draw.rectangle(bottom_overlay, fill=overlay_color)
     text_col_buffer_px = 10
