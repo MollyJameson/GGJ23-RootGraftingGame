@@ -40,6 +40,7 @@ for i, row in enumerate(data):
     top_overlay = [xy_pos, (xy_pos[0] + stat_overlay_size[0], xy_pos[1] + stat_overlay_size[1])]
     bottom_overlay = [(xy_pos[0], xy_pos[1] + card_h_px - stat_overlay_size[1]), bottom_right_card_pos_px]
 
+    #test comment
     # draw background image
     try:
         card_img = Image.open(row["imgpath"])
