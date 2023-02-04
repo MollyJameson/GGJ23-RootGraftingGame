@@ -1,2 +1,16 @@
 name,imgpath,statEffected,destroyLessStat,bonusStat,flavorText
-Tidalwave Tyrant,"event_cards/UltraRat_an_alien_supervillian_causing_a_tsunami_while_flying_i_4af430e6-9c50-4b42-a111-7109c89ee6c9.png",C,5,0,"Destroy any crop with less than 5 water resistance. Tidalwave Tyrant harnesses the power of the ocean, leaving destruction in their wake as they threaten to submerge entire harvests."
+Tidalwave Tyrant,event_cards/UltraRat_an_alien_supervillian_causing_a_tsunami_while_flying_i_4af430e6-9c50-4b42-a111-7109c89ee6c9.png,C,5,0,"Destroy any crop with less than 5 water resistance. Tidalwave Tyrant harnesses the power of the ocean, leaving destruction in their wake as they threaten to submerge entire harvests."
+Attack C water 2,event_cards/Placeholder.png,C,,,Water too high
+Attack D food 1,event_cards/Placeholder.png,D,,,Food low
+Attack D food 2,event_cards/Placeholder.png,D,,,Food med
+Attack E root 1,event_cards/Placeholder.png,E,,,Root depth short
+Attack E root 2,event_cards/Placeholder.png,E,,,Root depth med
+Attack A pest 1,event_cards/Placeholder.png,A,,,Pest low
+Attack A pest 2,event_cards/Placeholder.png,A,,,Pest med
+Attack B heat 1,event_cards/Placeholder.png,B,,,heat low
+Attack B heat 2,event_cards/Placeholder.png,B,,,Heat med
+Bonus A pests,event_cards/Placeholder.png,A,,,bonus if pests high
+Bonus B heat,event_cards/Placeholder.png,B,,,bonus if heat high
+bonus C water,event_cards/Placeholder.png,C,,,bonus if water high
+bonus D food,event_cards/Placeholder.png,D,,,bonus if food high
+bonus E root,event_cards/Placeholder.png,E,,,bonus if root high

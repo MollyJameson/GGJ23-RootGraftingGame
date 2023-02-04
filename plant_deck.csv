@@ -1,3 +1,16 @@
-name,"imgpath","top statA (pest)","top statB (heat)","top statC (drought)","top statD (food)","bottom statA (pest)","bottom statB (heat)","bottom statC (drought)","bottom statD (food)","bottom statE (root depth)","type (perennial or annual)"
+name,imgpath,top statA (pest),top statB (heat),top statC (drought),top statD (food),bottom statA (pest),bottom statB (heat),bottom statC (drought),bottom statD (food),bottom statE (root depth),type (perennial or annual)
 Moontuber,plant_cards/cosmic_potato.png,1,2,3,4,5,6,7,8,9,A
-Astromato,plant_cards/UltraRat_tomato_rootstock_e9a69fa0-f6d0-40c7-a1bb-910de9eea914.png,9,8,7,6,5,4,3,2,1,B
+Astromato,plant_cards/UltraRat_tomato_rootstock_e9a69fa0-f6d0-40c7-a1bb-910de9eea914.png,9,8,7,6,5,4,3,2,1,A
+eggplant,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+melon,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+grapes,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+succulant,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+cacti ,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+belladonna,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+Garlic,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+Roses,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,A
+apple,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,B
+cherry,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,B
+orange,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,B
+mandarin,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,B
+peach,plant_cards/Placeholder.png,1,2,3,4,1,2,3,4,5,B
