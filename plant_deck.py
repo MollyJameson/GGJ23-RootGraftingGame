@@ -40,7 +40,7 @@ for i, row in enumerate(data):
     top_overlay = [xy_pos, (xy_pos[0] + stat_overlay_size[0], xy_pos[1] + stat_overlay_size[1])]
     bottom_overlay = [(xy_pos[0], xy_pos[1] + card_h_px - stat_overlay_size[1]), bottom_right_card_pos_px]
 
-    #test comment
+   
     # draw background image
     try:
         card_img = Image.open(row["imgpath"])
@@ -52,11 +52,14 @@ for i, row in enumerate(data):
 
     # draw overlays
     overlay_color = "gray"
+    top_overlay_color = overlay_color
     if row["type (perennial or annual)"] == "A":
         overlay_color = "DarkGreen"
+        top_overlay_color = "Blue"
     elif row["type (perennial or annual)"] == "B":
         overlay_color = "SaddleBrown"
-    draw.rectangle(top_overlay, fill=overlay_color)
+        top_overlay_color = "Red"
+    draw.rectangle(top_overlay, fill=top_overlay_color)
     draw.rectangle(bottom_overlay, fill=overlay_color)
     text_col_buffer_px = 10
     text_stroke_width = 0
