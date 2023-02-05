@@ -43,6 +43,8 @@ draw = ImageDraw.Draw(img)
 font_size = 24
 font = ImageFont.truetype("arial.ttf", font_size)
 name_font = ImageFont.truetype("arial.ttf", 32)
+#not sure if this workds
+font_bold = ImageFont.truetype("arialbd.ttf", font_size)
 
 # Iterate over each row of the data
 for i, row in enumerate(data):
@@ -76,13 +78,18 @@ for i, row in enumerate(data):
     draw.rectangle(bottom_overlay, fill=overlay_color)
     # draw name
     draw.text((xy_pos[0] + text_col_buffer_px, xy_pos[1] + 20), row["name"], font=name_font, fill="black",stroke_fill="white",stroke_width=2)
-    # TODO: split flavor and functional text. can't do with markup
     #draw flavor text
-    multiline_wrapped_list = wrap_text(row["flavorText"],stat_overlay_size[0],font)
     y_text = bottom_overlay[0][1]
+    wrap_width_px = stat_overlay_size[0] - (text_col_buffer_px * 2)
+    multiline_wrapped_list = wrap_text(row["functionalText"],wrap_width_px,font_bold)
+    for line in multiline_wrapped_list:
+        draw.text((xy_pos[0] + text_col_buffer_px, y_text), line, font=font_bold, fill=(255, 255, 255, 255))
+        y_text += font_size + 2
+
+    multiline_wrapped_list = wrap_text(row["flavorText"],wrap_width_px,font)
     for line in multiline_wrapped_list:
         draw.text((xy_pos[0] + text_col_buffer_px, y_text), line, font=font, fill=(0, 0, 0, 255))
-        y_text += 24
+        y_text += font_size
     #draw.multiline_text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + text_col_buffer_px), row["flavorText"], font=font, fill="white", spacing=10, align='left', width=text_stroke_width)
 
 
