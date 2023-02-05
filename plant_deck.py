@@ -67,32 +67,31 @@ for i, row in enumerate(data):
     text_stroke_width = 0
     text_y_spacing = font_size + 5
     column2_px_offset = 250
+    bottom_buffer_px = 5
+
     # Write the contents of each column of the row into the image
-    for j, (column, value) in enumerate(row.items()):
-        if column=="name":
-            #draw.text((top_overlay[1][0], xy_pos[1] + stat_overlay_size[1] + 20), value, align="right",font=name_font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-            draw.text((xy_pos[0] + text_col_buffer_px, xy_pos[1] + stat_overlay_size[1] + 20), value, font=name_font, fill="black",stroke_fill="white",stroke_width=2)
-            #draw.text((xy_pos[0] + 10 + j * 100, xy_pos[1] + i * 100 + 10), value, font=font, fill="black",stroke_fill="white",stroke_width=4)
-        elif column=="top statA (pest)":
-            draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 0 * text_y_spacing), "pest: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="top statB (heat)":
-            draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 1 * text_y_spacing), "heat: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="top statC (drought)":
-            draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 2 * text_y_spacing), "drought: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="top statD (food)":
-            draw.text((top_overlay[0][0] + text_col_buffer_px + column2_px_offset, xy_pos[1] + text_col_buffer_px + 0 * text_y_spacing), "Food: " + value, font=name_font, fill="blue",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="bottom statA (pest)":
-            draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + text_col_buffer_px + 0 * text_y_spacing), "pest: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="bottom statB (heat)":
-            draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + text_col_buffer_px + 1 * text_y_spacing), "heat: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="bottom statC (drought)":
-            draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + text_col_buffer_px + 2 * text_y_spacing), "drought: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="bottom statD (food)":
-            draw.text((bottom_overlay[0][0] + text_col_buffer_px + column2_px_offset, bottom_overlay[0][1] + text_col_buffer_px + 0 * text_y_spacing), "Food: " + value, font=name_font, fill="blue",stroke_fill="white",stroke_width=text_stroke_width)
-        elif column=="bottom statE (root depth)":
-            draw.text((bottom_overlay[0][0] + text_col_buffer_px + column2_px_offset, bottom_overlay[0][1] + text_col_buffer_px + 2 * text_y_spacing), "Root Depth: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
-        #column is just the header.
-        #draw.text((10 + j * 100, i * 100 + 10), column + ": " + value, font=font, fill="black")
+    value = row["name"]
+    draw.text((xy_pos[0] + text_col_buffer_px, xy_pos[1] + stat_overlay_size[1] + 20), value, font=name_font, fill="black",stroke_fill="white",stroke_width=2)
+    value = row["top statA (pest)"]
+    draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 0 * text_y_spacing), "pest: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["top statB (heat)"]
+    draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 1 * text_y_spacing), "heat: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["top statC (drought)"]
+    draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 2 * text_y_spacing), "drought: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["top statD (food)"]
+    draw.text((top_overlay[0][0] + text_col_buffer_px + column2_px_offset, xy_pos[1] + text_col_buffer_px + 0 * text_y_spacing), "Food: " + value, font=name_font, fill="blue",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["bottom statA (pest)"]
+    draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + bottom_buffer_px + 0 * text_y_spacing), "pest: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["bottom statB (heat)"]
+    draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + bottom_buffer_px + 1 * text_y_spacing), "heat: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["bottom statC (drought)"]
+    draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + bottom_buffer_px + 2 * text_y_spacing), "drought: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["bottom statD (food)"]
+    draw.text((bottom_overlay[0][0] + text_col_buffer_px + column2_px_offset, bottom_overlay[0][1] + bottom_buffer_px + 0 * text_y_spacing), "Food: " + value, font=name_font, fill="blue",stroke_fill="white",stroke_width=text_stroke_width)
+    value = row["bottom statE (root depth)"]
+    draw.text((bottom_overlay[0][0] + text_col_buffer_px + column2_px_offset, bottom_overlay[0][1] + bottom_buffer_px + 2 * text_y_spacing), "Root Depth: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+
+
 
 # draw a frame around the whole thing
     draw.rectangle(card_position_on_sheet,width=border_width,outline=type_color)
