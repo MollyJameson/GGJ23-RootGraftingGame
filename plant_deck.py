@@ -61,18 +61,27 @@ for i, row in enumerate(data):
         type_color = "gray"
         border_width = 10
 
-        if row["type (perennial or annual)"] == "A":
-            type_color = "Yellow"
-        elif row["type (perennial or annual)"] == "B":
-            type_color = "MediumPurple"
         draw.rectangle(top_overlay, fill=top_overlay_color)
         draw.rectangle(bottom_overlay, fill=bottom_overlay_color)
+
         text_col_buffer_px = 15
         text_stroke_width = 0
         text_y_spacing = font_size + 5
         column2_px_offset = 230
         bottom_buffer_px = 5
 
+        icon_position = (top_overlay[0][0] + text_col_buffer_px + column2_px_offset, xy_pos[1] + text_col_buffer_px * 2 + 1 * text_y_spacing)
+        icon_bottom_right = (icon_position[0] + 25, icon_position[1] + 25)
+        icon_tuple = (icon_position[0],icon_position[1],icon_bottom_right[0],icon_bottom_right[1])
+        if row["type (perennial or annual)"] == "A":
+            type_color = "Yellow"
+            #icon position
+            draw.ellipse(icon_tuple, fill = type_color)
+        elif row["type (perennial or annual)"] == "B":
+            type_color = "MediumPurple"
+            draw.rectangle(icon_tuple,fill=type_color)
+
+        
         # Write the contents of each column of the row into the image
         value = row["name"]
         name_buffer_x = 5
