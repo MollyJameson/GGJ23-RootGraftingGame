@@ -13,7 +13,8 @@ def wrap_text(text, width, font):
             text_line = []
             continue
         text_line.append(word)
-        w, h = font.getsize(' '.join(text_line))
+        #w, h = font.getsize(' '.join(text_line))
+        w = font.getlength(' '.join(text_line))
         if w > width:
             text_line.pop()
             text_lines.append(' '.join(text_line))
@@ -35,7 +36,7 @@ cards_per_col = 7
 card_w_px = int(img_width_px/cards_per_row)
 card_h_px = int(img_height_px/cards_per_col)
 # Create a blank image with a white background
-img = Image.new("RGB", (img_width_px, img_height_px), color="white")
+img = Image.new("RGBA", (img_width_px, img_height_px), color="white")
 
 # Create a drawing context for the image
 draw = ImageDraw.Draw(img)
@@ -77,7 +78,13 @@ for i, row in enumerate(data):
     overlay_color = "gray"
     draw.rectangle(bottom_overlay, fill=overlay_color)
     # draw name
-    draw.text((xy_pos[0] + text_col_buffer_px, xy_pos[1] + 20), row["name"], font=name_font, fill="black",stroke_fill="white",stroke_width=2)
+    name_buffer_x = 5
+    name_buffer_y = 5
+    name_position = (xy_pos[0] + text_col_buffer_px, xy_pos[1] + 20)
+    bbox = draw.textbbox(name_position, row["name"], font=name_font)
+    # the bounding box is really tight, so add a buffer around each size.
+    draw.rectangle([bbox[0] - name_buffer_x,bbox[1] - name_buffer_y,bbox[2] + name_buffer_x,bbox[3]+name_buffer_y], fill=(0, 0, 0, 100))
+    draw.text(name_position, row["name"], font=name_font, fill="white",stroke_fill="white",stroke_width=0)
     #draw flavor text
     y_text = bottom_overlay[0][1]
     wrap_width_px = stat_overlay_size[0] - (text_col_buffer_px * 2)
