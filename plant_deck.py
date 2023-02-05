@@ -12,7 +12,7 @@ cards_per_col = 7
 card_w_px = int(img_width_px/cards_per_row)
 card_h_px = int(img_height_px/cards_per_col)
 # Create a blank image with a white background
-img = Image.new("RGB", (img_width_px, img_height_px), color="white")
+img = Image.new("RGBA", (img_width_px, img_height_px), color="white")
 
 # Create a drawing context for the image
 draw = ImageDraw.Draw(img)
@@ -71,13 +71,20 @@ for i, row in enumerate(data):
 
     # Write the contents of each column of the row into the image
     value = row["name"]
-    draw.text((xy_pos[0] + text_col_buffer_px, xy_pos[1] + stat_overlay_size[1] + 20), value, font=name_font, fill="black",stroke_fill="white",stroke_width=2)
+    name_buffer_x = 5
+    name_buffer_y = 5
+    name_position = (xy_pos[0] + text_col_buffer_px + 5, xy_pos[1] + stat_overlay_size[1] + 5)
+    bbox = draw.textbbox(name_position, value, font=name_font)
+    # the bounding box is really tight, so add a buffer around each size.
+    draw.rectangle([bbox[0] - name_buffer_x,bbox[1] - name_buffer_y,bbox[2] + name_buffer_x,bbox[3]+name_buffer_y], fill=(255, 255, 255, 100))
+    draw.text(name_position, value, font=name_font, fill="black",stroke_fill="white",stroke_width=0)
+    
     value = row["top statA (pest)"]
     draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 0 * text_y_spacing), "pest: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["top statB (heat)"]
     draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 1 * text_y_spacing), "heat: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["top statC (drought)"]
-    draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 2 * text_y_spacing), "drought: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    draw.text((top_overlay[0][0] + text_col_buffer_px, xy_pos[1] + text_col_buffer_px + 2 * text_y_spacing), "water: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["top statD (food)"]
     draw.text((top_overlay[0][0] + text_col_buffer_px + column2_px_offset, xy_pos[1] + text_col_buffer_px + 0 * text_y_spacing), "Food: " + value, font=name_font, fill="blue",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["bottom statA (pest)"]
@@ -85,7 +92,7 @@ for i, row in enumerate(data):
     value = row["bottom statB (heat)"]
     draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + bottom_buffer_px + 1 * text_y_spacing), "heat: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["bottom statC (drought)"]
-    draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + bottom_buffer_px + 2 * text_y_spacing), "drought: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
+    draw.text((bottom_overlay[0][0] + text_col_buffer_px, bottom_overlay[0][1] + bottom_buffer_px + 2 * text_y_spacing), "water: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["bottom statD (food)"]
     draw.text((bottom_overlay[0][0] + text_col_buffer_px + column2_px_offset, bottom_overlay[0][1] + bottom_buffer_px + 0 * text_y_spacing), "Food: " + value, font=name_font, fill="blue",stroke_fill="white",stroke_width=text_stroke_width)
     value = row["bottom statE (root depth)"]
