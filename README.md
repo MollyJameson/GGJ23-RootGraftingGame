@@ -1,2 +1,4 @@
 # GGJ23-RootGraftingGame
-Grafting in Extraterritorial Horticulture card game for Global Game Jam 2023
+Grafting in Galactic Gardens card game for Global Game Jam 2023
+
+Grafting in Galactic Gardens is a thrilling card game where players attempt to cultivate the most bountiful harvest. Players start with a variety of crops and must strategically graft them with other cards to create even more powerful plants. However, be warned, the weather can change at any moment, bringing droughts, storms, and other unpredictable events that can ruin even the most carefully tended fields. Will you be able to weather the storm and emerge victorious, or will your crops wilt and die? The only way to find out is to to Graft and Grow.
