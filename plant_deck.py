@@ -52,20 +52,18 @@ for i, row in enumerate(data):
         print(f"Error: The file ${row['imgpath']} could not be found.")
 
     # draw overlays
-    overlay_color = "gray"
-    top_overlay_color = overlay_color
-
+    top_overlay_color = "ForestGreen"
+    bottom_overlay_color = "Peru"
+    type_color = "gray"
     border_width = 10
 
     if row["type (perennial or annual)"] == "A":
-        overlay_color = "Peru"
-        top_overlay_color = "ForestGreen"
+        type_color = "Yellow"
     elif row["type (perennial or annual)"] == "B":
-        overlay_color = "Peru"
-        top_overlay_color = "MediumPurple"
+        type_color = "MediumPurple"
     draw.rectangle(top_overlay, fill=top_overlay_color)
-    draw.rectangle(bottom_overlay, fill=overlay_color)
-    text_col_buffer_px = 10
+    draw.rectangle(bottom_overlay, fill=bottom_overlay_color)
+    text_col_buffer_px = 15
     text_stroke_width = 0
     text_y_spacing = font_size + 5
     column2_px_offset = 250
@@ -95,5 +93,9 @@ for i, row in enumerate(data):
             draw.text((bottom_overlay[0][0] + text_col_buffer_px + column2_px_offset, bottom_overlay[0][1] + text_col_buffer_px + 2 * text_y_spacing), "Root Depth: " + value, font=font, fill="black",stroke_fill="white",stroke_width=text_stroke_width)
         #column is just the header.
         #draw.text((10 + j * 100, i * 100 + 10), column + ": " + value, font=font, fill="black")
+
+# draw a frame around the whole thing
+    draw.rectangle(card_position_on_sheet,width=border_width,outline=type_color)
+
 # Save the image to disk
 img.save("plant_deck.png")
